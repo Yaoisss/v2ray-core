@@ -2,6 +2,7 @@ package log
 
 import (
 	"context"
+	"fmt"
 	"strings"
 
 	"github.com/v2fly/v2ray-core/v5/common/serial"
@@ -57,10 +58,12 @@ func (m *AccessMessage) String() string {
 }
 
 func ContextWithAccessMessage(ctx context.Context, accessMessage *AccessMessage) context.Context {
+	fmt.Println("|| /common/log/access.go -> ContextWithAccessMessage()")
 	return context.WithValue(ctx, accessMessageKey, accessMessage)
 }
 
 func AccessMessageFromContext(ctx context.Context) *AccessMessage {
+	fmt.Println("|| /common/log/access.go -> AccessMessageFromContext()")
 	if accessMessage, ok := ctx.Value(accessMessageKey).(*AccessMessage); ok {
 		return accessMessage
 	}

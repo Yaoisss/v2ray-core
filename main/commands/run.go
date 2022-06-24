@@ -21,7 +21,7 @@ import (
 var CmdRun = &base.Command{
 	CustomFlags: true,
 	UsageLine:   "{{.Exec}} run [-c config.json] [-d dir]",
-	Short:       "run V2Ray with config",
+	Short:       "SJ- run V2Ray with config",
 	Long: `
 Run V2Ray with config.
 
@@ -176,6 +176,7 @@ func getConfigFilePath() cmdarg.Arg {
 	}
 
 	if workingDir, err := os.Getwd(); err == nil {
+		fmt.Println("workingDir:", workingDir)
 		configFile := filepath.Join(workingDir, "config.json")
 		if fileExists(configFile) {
 			log.Println("Using default config: ", configFile)

@@ -44,7 +44,7 @@ func NewTCPNameServer(url *url.URL, dispatcher routing.Dispatcher) (*TCPNameServ
 	if err != nil {
 		return nil, err
 	}
-
+	newError("DNS: SJ -- TCP SERVER RUN!!!!").AtInfo().WriteToLog()
 	s.dial = func(ctx context.Context) (net.Conn, error) {
 		link, err := dispatcher.Dispatch(ctx, s.destination)
 		if err != nil {
