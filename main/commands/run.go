@@ -90,6 +90,7 @@ func executeRun(cmd *base.Command, args []string) {
 	defer server.Close()
 
 	// Explicitly triggering GC to remove garbage from config loading.
+	//明确触发GC以从配置加载中删除垃圾。
 	runtime.GC()
 
 	{
