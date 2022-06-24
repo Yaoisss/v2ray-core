@@ -88,8 +88,10 @@ func executeRun(cmd *base.Command, args []string) {
 		base.Fatalf("Failed to start: %s", err)
 	}
 	defer server.Close()
-
+	newError("SJ-DEBUG RUN Star() started").AtWarning().WriteToLog()
+	fmt.Println("Server:", server)
 	// Explicitly triggering GC to remove garbage from config loading.
+	//明确触发GC以从配置加载中删除垃圾。
 	runtime.GC()
 
 	{

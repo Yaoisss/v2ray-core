@@ -68,6 +68,11 @@ func RegisterConfigLoader(format *ConfigFormat) error {
 }
 
 func getExtension(filename string) string {
+	// ext返回路径使用的文件名扩展名。
+	//扩展名是从最终点开始的后缀
+	//在路径的最终元素中； 如果有的话，它是空的
+	//没有点。
+	//获取到配置文件后缀名
 	ext := filepath.Ext(filename)
 	return strings.ToLower(ext)
 }

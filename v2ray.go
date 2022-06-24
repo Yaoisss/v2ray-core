@@ -2,7 +2,9 @@ package core
 
 import (
 	"context"
+	"fmt"
 	"reflect"
+	"runtime"
 	"sync"
 
 	"github.com/v2fly/v2ray-core/v5/common"
@@ -345,12 +347,13 @@ func (s *Instance) Start() error {
 
 	s.running = true
 	for _, f := range s.features {
+		//这里是
 		if err := f.Start(); err != nil {
 			return err
 		}
 	}
-
+	fmt.Println("V2Ray ", Version(), " started")
 	newError("V2Ray ", Version(), " started").AtWarning().WriteToLog()
-
+	runtime.GC()
 	return nil
 }
