@@ -78,6 +78,7 @@ func getExtension(filename string) string {
 }
 
 // GetLoaderExtensions get config loader extensions.
+// GetLoaderExtensions 获取配置加载器扩展。
 func GetLoaderExtensions(formatName string) ([]string, error) {
 	if formatName == FormatAuto {
 		return GetAllExtensions(), nil
@@ -89,6 +90,7 @@ func GetLoaderExtensions(formatName string) ([]string, error) {
 }
 
 // GetAllExtensions get all extensions supported
+// GetAllExtensions 获得所有支持
 func GetAllExtensions() []string {
 	extensions := make([]string, 0)
 	for _, f := range configLoaderByName {

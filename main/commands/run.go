@@ -151,6 +151,7 @@ func readConfDirRecursively(dirPath string, extension []string) cmdarg.Arg {
 	return files
 }
 
+//获取配置文件地址
 func getConfigFilePath() cmdarg.Arg {
 	extension, err := core.GetLoaderExtensions(*configFormat)
 	if err != nil {
@@ -179,6 +180,7 @@ func getConfigFilePath() cmdarg.Arg {
 
 	if workingDir, err := os.Getwd(); err == nil {
 		fmt.Println("workingDir:", workingDir)
+		//config.json路径拼接完成
 		configFile := filepath.Join(workingDir, "config.json")
 		if fileExists(configFile) {
 			log.Println("Using default config: ", configFile)
